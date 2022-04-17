@@ -14,22 +14,22 @@
         <!-- <input type="text" class="form-control my-3" v-model="newUser" v-on:keyup.enter="createdUser"> -->
         <form>
             <div class="form-floating">
-                <input type="text" class="form-control my-3" id="floatingInputValue" v-model="nameUser" v-on:keyup.enter="createdUser">
+                <input type="text" class="form-control my-3" id="floatingInputValue" v-model="nameUser" v-on:keyup.enter="createdUser($event)">
                 <label for="floatingInputValue">Name User</label>
             </div>
 
             <div class="form-floating">
-                <input type="text" class="form-control my-3" id="floatingInputValue" v-model="lastNameUser" v-on:keyup.enter="createdUser">
+                <input type="text" class="form-control my-3" id="floatingInputValue" v-model="lastNameUser" v-on:keyup.enter="createdUser($event)">
                 <label for="floatingInputValue">Last Name</label>
             </div>
 
             <div class="form-floating">
-                <input type="number" class="form-control my-3" id="floatingInputValue" v-model="ageUser" v-on:keyup.enter="createdUser">
+                <input type="number" class="form-control my-3" id="floatingInputValue" v-model="ageUser" v-on:keyup.enter="createdUser($event)">
                 <label for="floatingInputValue">Age</label>
             </div>
 
             <div v-if ="edit == false">
-                <button type="submit"class="btn btn-primary"  @click="createdUser(user,lastName,age,$event)">Save</button>
+                <button type="submit"class="btn btn-primary"  @click="createdUser($event)">Save</button>
                 <!-- <button type="submit"class="btn btn-primary"  @click="createdUser(user,lastName,age,$event)">Save</button> -->
             </div>
 
@@ -75,6 +75,7 @@
                 </div>
             </div>
         </div>
+        
 
 
     </div>    
