@@ -10,8 +10,6 @@
   <body>
     <div class="container mt-5" id="app">
         <h3>{{titulo}}</h3>
-
-        <!-- <input type="text" class="form-control my-3" v-model="newUser" v-on:keyup.enter="createdUser"> -->
         <form>
             <div class="form-floating">
                 <input type="text" class="form-control my-3" id="floatingInputValue" v-model="nameUser" v-on:keyup.enter="createdUser($event)">
@@ -30,7 +28,6 @@
 
             <div v-if ="edit == false">
                 <button type="submit"class="btn btn-primary"  @click="createdUser($event)">Save</button>
-                <!-- <button type="submit"class="btn btn-primary"  @click="createdUser(user,lastName,age,$event)">Save</button> -->
             </div>
 
             <div v-if ="edit == true">
@@ -40,19 +37,15 @@
         </form> 
         
 
-        <!-- <h5>{{newUser}}</h5> -->
-
         <div class="mt-3" v-for="(item,index) of users">
             <div role="alert" :class="['alert', item.state ? 'alert-success' : 'alert-danger']"
             >
                 <div v-if="edit == false" class="d-flex justify-content-between align-item-center"> 
                     <div class="d-flex flex-column">
                         <label for="floatingTextarea">Id: {{index}}</label>
-                        <!-- <label for="floatingTextarea">{{item.state}} </label> -->
                         <label for="floatingTextarea">Name: {{item.name}} </label>
                         <label for="floatingTextarea">Last name: {{item.lastName}}</label>
                         <label for="floatingTextarea">Age: {{item.age}}</label>
-                        <!-- <label for="floatingTextarea">Created at: {{item.timeOfCreationUser}}</label>   -->
                     </div>
                     <div>
                         <button class="btn btn-success btn-sm" @click="editUser(index)"><i class="fas fa-pen"></i></button>
@@ -62,11 +55,9 @@
                 <div v-if="edit == true" class="d-flex justify-content-between align-item-center"> 
                     <div class="d-flex flex-column">
                         <label for="floatingTextarea">Id: {{index}}</label>
-                        <!-- <label for="floatingTextarea">{{item.state}} </label> -->
                         <label for="floatingTextarea">Name: {{item.name}} </label>
                         <label for="floatingTextarea">Last name: {{item.lastName}}</label>
                         <label for="floatingTextarea">Age: {{item.age}}</label>
-                        <!-- <label for="floatingTextarea">Created at: {{item.timeOfCreationUser}}</label>   -->
                     </div>
                     <div>
                         <button disabled class="btn btn-success btn-sm" @click="editUser(index)"><i class="fas fa-pen"></i></button>
@@ -76,8 +67,6 @@
             </div>
         </div>
         
-
-
     </div>    
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="./app.js"></script>

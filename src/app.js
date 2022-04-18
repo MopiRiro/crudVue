@@ -9,7 +9,6 @@ const app = new Vue({
       edit: false,
       delete: false,
       cancel: false,
-      id2:0,
       ind:0,
       state: false,
   },  
@@ -18,12 +17,10 @@ const app = new Vue({
     createdUser: function(e){
         e.preventDefault();
         this.users.push({
-            // id: this.users[index],
             name: this.nameUser,
             lastName: this.lastNameUser,
             age:this.ageUser,
-            state: false,
-            
+            state: false,            
         })
         console.log(this.users);
         this.nameUser = '';
@@ -32,16 +29,12 @@ const app = new Vue({
         localStorage.setItem('users-vue',JSON.stringify(this.users));
     },
     editUser:function(index) {
-        // console.log(index);
         this.users[index].state = true,
-        // this.state = true,
-        // this.users[index].state
         this.edit = true;
         this.nameUser = this.users[index].name;
         this.lastNameUser = this.users[index].lastName;
         this.ageUser = this.users[index].age;
         this.ind = index;
-        // console.log(this.ind);
     },
     updateUser: function(e){
         // console.log(this.ind);
