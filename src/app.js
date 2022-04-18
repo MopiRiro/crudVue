@@ -22,7 +22,6 @@ const app = new Vue({
             age:this.ageUser,
             state: false,            
         })
-        console.log(this.users);
         this.nameUser = '';
         this.lastNameUser = '';
         this.ageUser = '';
@@ -36,26 +35,27 @@ const app = new Vue({
         this.ageUser = this.users[index].age;
         this.ind = index;
     },
-    updateUser: function(e){
-        // console.log(this.ind);
+    updateUser: function (e) {
         alert('Datos actualizados');
         e.preventDefault();
-        this.edit =! this.edit;
+        this.edit = !this.edit;
         let usersLS = {
             nameUserUpdate: this.nameUser,
             lasNameUserUpdate: this.lastNameUser,
             ageUserUpdate: this.ageUser,
             stateUpdate: false,
         }
-        // console.log(this.users[this.ind]);
-        // console.log(usersLS);
-        // console.log(this.ind);
         this.users[this.ind] = usersLS;
-        console.log(this.users[this.ind]);
-        localStorage.setItem('users-vue',JSON.stringify(this.users[this.ind]));
-        // let usersLSU = JSON.parse(localStorage.getItem('users-vue'));
+        localStorage.setItem('users-vue', JSON.stringify(this.users[this.ind]));
+        let dataLS = JSON.parse(localStorage.getItem('users-vue'));
+        this.users = [];
+        this.users.push({
+            name: dataLS.nameUserUpdate,
+            lastName: dataLS.lasNameUserUpdate,
+            age: dataLS.ageUserUpdate,
+            state: false,
+        })
         
-        // this.users = usersLSU;
         this.nameUser = '';
         this.lastNameUser = '';
         this.ageUser = '';
@@ -68,7 +68,6 @@ const app = new Vue({
         this.edit =! this.edit; 
     },
     deleteUser: function(index){
-        console.log(index);
         this.users.splice(index, 1);
         localStorage.setItem('users-vue',JSON.stringify(this.users));
     }
